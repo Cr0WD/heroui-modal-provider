@@ -18,6 +18,7 @@ describe('useModal', () => {
     uidSpy = jest
       .spyOn(utils, 'uid')
       .mockReturnValueOnce(rootId)
+      .mockReturnValueOnce('IGNORED') // Because of Nexus
       .mockReturnValueOnce(modalId);
   });
 
@@ -45,7 +46,7 @@ describe('useModal', () => {
           hideOnClose: true,
         },
         props: {
-          open: true,
+          isOpen: true,
         },
       },
     };

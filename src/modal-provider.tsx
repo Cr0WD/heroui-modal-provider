@@ -13,13 +13,10 @@ import {
   MISSED_MODAL_ROOT_ID_ERROR_MESSAGE,
 } from './constants';
 import { uid } from './utils';
+import ModalNexus from './modal-nexus';
 
 export interface ModalProviderProps {
   children: ReactNode;
-  /**
-   * Enable it if you want to use mui < 5 version
-   */
-  legacy?: boolean;
   /**
    * Enable it if you want to wrap the modals with the Suspense feature.
    * @see https://beta.reactjs.org/reference/react/Suspense
@@ -34,14 +31,13 @@ export interface ModalProviderProps {
 
 export default function ModalProvider({
   children,
-  legacy = false,
   suspense = true,
   fallback = null,
 }: ModalProviderProps) {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   const update = React.useCallback<UpdateFn>(
-    (id, { open, ...props }) => {
+    (id, { isOpen, ...props }) => {
       if (!id) {
         console.error(MISSED_MODAL_ID_ERROR_MESSAGE);
         return;
@@ -156,31 +152,18 @@ export default function ModalProvider({
       };
 
       const handleExited = (...args: any[]) => {
-        if (props?.onExited) {
-          props.onExited(...args);
-        }
-
-        if (props?.TransitionProps?.onExited) {
-          props.TransitionProps.onExited(...args);
-        }
+        if (props?.isOpen) return;
+        props?.motionProps?.onAnimationComplete?.(...args);
 
         destroy(id);
       };
 
-      let extraProps = {};
-
-      if (!legacy) {
-        extraProps = {
-          TransitionProps: {
-            ...props?.TransitionProps,
-            onExited: handleExited,
-          },
-        };
-      } else {
-        extraProps = {
-          onExited: handleExited,
-        };
-      }
+      let extraProps = {
+        motionProps: {
+          ...props?.motionProps,
+          onAnimationComplete: handleExited,
+        },
+      };
 
       return (
         <Component
@@ -206,6 +189,7 @@ export default function ModalProvider({
       }}
     >
       {children}
+      <ModalNexus />
       <SuspenseWrapper {...(suspense && { fallback })}>
         {renderState()}
       </SuspenseWrapper>

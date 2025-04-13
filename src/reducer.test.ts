@@ -29,7 +29,7 @@ describe('reducer', () => {
     };
     expectedProps = {
       text: 'sample text',
-      open: true,
+      isOpen: true,
     };
   });
 
@@ -43,7 +43,7 @@ describe('reducer', () => {
       type: Types.SHOW,
       payload: { id, component },
     });
-    expectedState[id].props = { open: true };
+    expectedState[id].props = { isOpen: true };
     expect(state[id]).toEqual(expectedState[id]);
   });
 
@@ -59,14 +59,14 @@ describe('reducer', () => {
   it('should handle hide case (without props)', () => {
     delete expectedState[id].props;
     const state = reducer(expectedState, { type: Types.HIDE, payload: { id } });
-    expectedState[id].props = { open: false };
+    expectedState[id].props = { isOpen: false };
     expect(state).toEqual(expectedState);
   });
 
   it('should handle hide case (with props)', () => {
     expectedState[id].props = expectedProps;
     const state = reducer(expectedState, { type: Types.HIDE, payload: { id } });
-    expectedState[id].props = { ...expectedProps, open: false };
+    expectedState[id].props = { ...expectedProps, isOpen: false };
     expect(state).toEqual(expectedState);
   });
 
@@ -80,7 +80,7 @@ describe('reducer', () => {
 
   it('should handle update case (new props)', () => {
     const updatedTextProp = 'updated sample text';
-    expectedState[id].props = { open: true };
+    expectedState[id].props = { isOpen: true };
     const state = reducer(expectedState, {
       type: Types.UPDATE,
       payload: { id, props: { text: updatedTextProp } },

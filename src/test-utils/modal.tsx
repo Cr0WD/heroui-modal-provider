@@ -2,33 +2,31 @@ import React from 'react';
 import { OnExitedEvent, OnCloseEvent } from './index';
 
 export type ModalProps = {
-  open?: boolean;
+  isOpen?: boolean;
   text: string;
-  TransitionProps?: {
-    onExited?: (args: any) => void;
+  motionProps?: {
+    onAnimationComplete?: (args: any) => void;
   };
   onClose?: (args: any) => void;
 };
 
 const Modal: React.FC<ModalProps> = ({
-  open,
+  isOpen,
   text,
-  TransitionProps,
+  motionProps,
   onClose,
 }) => {
   React.useEffect(() => {
-    if (!open) {
+    if (!isOpen) {
       if (onClose) {
         onClose(OnCloseEvent);
       }
 
-      if (TransitionProps?.onExited) {
-        TransitionProps.onExited(OnExitedEvent);
-      }
+      motionProps?.onAnimationComplete?.(OnExitedEvent);
     }
-  }, [open, TransitionProps, onClose]);
+  }, [isOpen, motionProps, onClose]);
 
-  if (!open) {
+  if (!isOpen) {
     return null;
   }
 

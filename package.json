@@ -1,11 +1,11 @@
 {
-  "version": "2.4.6",
+  "version": "1.0.0",
   "license": "MIT",
-  "name": "mui-modal-provider",
-  "author": "Quernest",
+  "name": "heroui-modal-provider",
+  "author": "Cr0WD",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Quernest/mui-modal-provider"
+    "url": "https://github.com/Cr0WD/heroui-modal-provider"
   },
   "keywords": [
     "context",
@@ -19,17 +19,22 @@
     "react-typescript",
     "react-modal-component",
     "react-modal-dialog",
-    "react-material-ui",
-    "material-ui",
-    "material-ui-components",
-    "material-ui-react",
+    "react-heroui",
+    "heroui",
+    "heroui-components",
+    "heroui-react",
+    "react-nextui",
+    "nextui",
+    "nextui-components",
+    "nextui-react",
     "modal",
-    "mui",
+    "heroui",
+    "nextui",
     "hooks",
     "typescript",
     "dialog"
   ],
-  "module": "dist/mui-modal-provider.esm.js",
+  "module": "dist/heroui-modal-provider.esm.js",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [

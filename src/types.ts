@@ -2,10 +2,10 @@ import { ComponentType } from 'react';
 
 export type ModalComponent<P> = ComponentType<P>;
 
-export type ModalComponentProps<P> = Omit<P, 'open'>;
+export type ModalComponentProps<P> = Omit<P, 'isOpen'>;
 
 export interface Props {
-  open?: Boolean;
+  isOpen?: Boolean;
   [key: string]: any;
 }
 

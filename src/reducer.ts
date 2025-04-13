@@ -50,7 +50,7 @@ export default function reducer(state: State, action: Action) {
           component,
           props: {
             ...props,
-            open: true,
+            isOpen: true,
           },
           options,
         },
@@ -69,7 +69,7 @@ export default function reducer(state: State, action: Action) {
           ...state[id],
           props: {
             ...state[id].props,
-            open: false,
+            isOpen: false,
           },
         },
       };

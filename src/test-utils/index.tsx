@@ -6,14 +6,12 @@ export const OnExitedEvent = new Event('exited');
 
 interface Props {
   children: ReactNode;
+  suspense?: boolean;
+  fallback?: ReactNode | null;
 }
 
 export const ModalProviderWrapper: FC<Props> = ({ children }) => (
   <ModalProvider>{children}</ModalProvider>
-);
-
-export const LegacyModalProviderWrapper: FC<Props> = ({ children }) => (
-  <ModalProvider legacy>{children}</ModalProvider>
 );
 
 export const NoSuspenseModalProviderWrapper: FC<Props> = ({ children }) => (

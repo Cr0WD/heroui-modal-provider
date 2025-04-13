@@ -6,3 +6,4 @@ export {
 export { default as useModal, UseModalOptions } from './use-modal';
 export * from './types';
 export * from './modal-config';
+export { getModal } from './modal-nexus';
