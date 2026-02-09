@@ -42,11 +42,11 @@
   ],
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "tsdx build && tsc --project tsconfig.build.json --emitDeclarationOnly --declaration --declarationMap",
     "test": "tsdx test --passWithNoTests",
     "test:coverage": "yarn test --coverage",
     "lint": "tsdx lint",
-    "prepare": "install-peers && tsdx build"
+    "prepare": "install-peers && yarn build"
   },
   "husky": {
     "hooks": {
