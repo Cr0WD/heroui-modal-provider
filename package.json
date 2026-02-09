@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "name": "heroui-modal-provider",
   "author": "Cr0WD",
@@ -108,6 +108,7 @@
     "@types/jest": "^30.0.0",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
+    "bunchee": "^6.9.4",
     "husky": "^9.1.7",
     "install-peers-cli": "^2.2.0",
     "react": "^19.2.4",

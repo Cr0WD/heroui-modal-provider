@@ -1,4 +1,22 @@
-import { ComponentType } from 'react';
+import { ComponentType, ReactNode } from 'react';
+
+export interface ModalProviderProps {
+  children: ReactNode;
+  /**
+   * Enable it if you want to wrap the modals with the Suspense feature.
+   * @see https://beta.reactjs.org/reference/react/Suspense
+   */
+  suspense?: boolean;
+  /**
+   * Custom fallback for the Suspense fallback
+   * @see https://beta.reactjs.org/reference/react/Suspense#displaying-a-fallback-while-content-is-loading
+   */
+  fallback?: ReactNode | null;
+}
+
+export interface UseModalOptions {
+  disableAutoDestroy?: boolean;
+}
 
 export type ModalComponent<P> = ComponentType<P>;
 
@@ -27,13 +45,13 @@ export interface StateElement {
 
 export type ActionMap<M extends { [index: string]: any }> = {
   [Key in keyof M]: M[Key] extends undefined
-    ? {
-        type: Key;
-      }
-    : {
-        type: Key;
-        payload: M[Key];
-      };
+  ? {
+    type: Key;
+  }
+  : {
+    type: Key;
+    payload: M[Key];
+  };
 };
 
 export type UpdateFn = <P extends Props>(

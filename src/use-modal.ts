@@ -1,11 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
-import { ShowFn } from './types';
+import { ShowFn, UseModalOptions } from './types';
 import { uid } from './utils';
 import useModalContext from './use-modal-context';
-
-export interface UseModalOptions {
-  disableAutoDestroy?: boolean;
-}
 
 const defaultOptions: UseModalOptions = {
   disableAutoDestroy: false,

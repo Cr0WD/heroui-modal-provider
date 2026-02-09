@@ -1,4 +1,4 @@
-import React, { ReactNode, Fragment, Suspense } from 'react';
+import React, { Fragment, Suspense } from 'react';
 import ModalContext from './modal-context';
 import reducer, { initialState, Types } from './reducer';
 import {
@@ -7,6 +7,7 @@ import {
   HideFn,
   ShowFn,
   UpdateFn,
+  ModalProviderProps,
 } from './types';
 import {
   MISSED_MODAL_ID_ERROR_MESSAGE,
@@ -15,21 +16,7 @@ import {
 import { uid } from './utils';
 import ModalNexus from './modal-nexus';
 
-export interface ModalProviderProps {
-  children: ReactNode;
-  /**
-   * Enable it if you want to wrap the modals with the Suspense feature.
-   * @see https://beta.reactjs.org/reference/react/Suspense
-   */
-  suspense?: boolean;
-  /**
-   * Custom fallback for the Suspense fallback
-   * @see https://beta.reactjs.org/reference/react/Suspense#displaying-a-fallback-while-content-is-loading
-   */
-  fallback?: ReactNode | null;
-}
-
-export default function ModalProvider({
+function ModalProvider({
   children,
   suspense = true,
   fallback = null,
@@ -196,3 +183,5 @@ export default function ModalProvider({
     </ModalContext.Provider>
   );
 }
+
+export default ModalProvider;
