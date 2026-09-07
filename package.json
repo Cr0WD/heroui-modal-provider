@@ -107,7 +107,7 @@
     "@testing-library/react": "^16.3.3",
     "@types/jest": "^30.0.0",
     "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.5",
+    "@types/react-dom": "^19.2.7",
     "bunchee": "^7.0.1",
     "husky": "^9.1.7",
     "install-peers-cli": "^2.2.0",
