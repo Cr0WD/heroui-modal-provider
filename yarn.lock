@@ -1374,10 +1374,10 @@ braces@^3.0.3:
   dependencies:
     fill-range "^7.1.1"
 
-bunchee@^7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/bunchee/-/bunchee-7.0.2.tgz#241d4facc29310a4bc629c226234bfafd64aa052"
-  integrity sha512-FVnDySjTeTD5SYrI+J8dTriQiGi+4kP7JfZ1u9Jsc1zs5M/sIWdIQPk79WD4t5U3Kn7qVn6s/khNBK1/mXUQGg==
+bunchee@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/bunchee/-/bunchee-7.1.0.tgz#d850525e7c43b42946518ec0b86b3ffae375296d"
+  integrity sha512-9LatyCok+Ed7RpTOT9gus7eL+6E5gW+MLUE/sJLRV8eQnQMjNSr83qtkpmQpPMpEsSgtlGGRZjLs5gwGMk98EA==
   dependencies:
     "@rollup/plugin-commonjs" "^29.0.3"
     "@rollup/plugin-json" "^6.1.0"
